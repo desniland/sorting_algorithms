@@ -6,11 +6,11 @@ void cocktail_sort_list(listint_t **list);
 
 /**
  * swap_node_ahead - Swaps a node in a listint_t dll
- *  * list of integers with the node ahead of it.
- *   * @list: pointer to the head of a dll of integers.
- *    * @tail: pointer to the tail of the dll.
- *     * @shaker: pointer to the current swapping node
- *      */
+ * list of integers with the node ahead of it.
+ * @list: pointer to the head of a dll of integers.
+ * @tail: pointer to the tail of the dll.
+ * @shaker: pointer to the current swapping node
+*/
 void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
 {
 	listint_t *tmp = (*shaker)->next;
@@ -31,12 +31,12 @@ void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
 }
 
 /**
- * swap_node_behind - Swaps a node in a listint_t dll of integers 
+ * swap_node_behind - Swaps a node in a listint_t dll of integers
  *   with the node behind it.
  * @list: pointer to the head of a dll of integers.
  * @tail: pointer to the tail of the dll.
  * @tip: pointer to the current swapping node.
- */
+*/
 void swap_node_behind(listint_t **list, listint_t **tail, listint_t **tip)
 {
 	listint_t *tmp = (*tip)->prev;
