@@ -1,5 +1,13 @@
 #include "deck.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
+
+int _strcmp(const char *s1, const char *s2);
+char get_value(deck_node_t *card);
+void insertion_sort_deck_kind(deck_node_t **deck);
+void insertion_sort_deck_value(deck_node_t **deck);
+void sort_deck(deck_node_t **deck);
 
 /**
  * _strcmp - Compares two strings.
@@ -7,27 +15,27 @@
  * @s2: The second string to be compared.
  *
  * Return: Positive byte difference if s1 > s2
- * 0 if s1 == s2 else
+ * 0 if s1 == s2
  * Negative byte difference if s1 < s2
- */
+*/
 int _strcmp(const char *s1, const char *s2)
 {
-	while (*s1 && *s2 && *s1 == *s2)
-	{
-		s1++;
-		s2++;
-	}
+while (*s1 && *s2 && *s1 == *s2)
+{
+s1++;
+s2++;
+}
 
-	if (*s1 != *s2)
-		return (*s1 - *s2);
-	return (0);
+if (*s1 != *s2)
+return (*s1 - *s2);
+return (0);
 }
 
 /**
  * get_card_position - returns the position based on card you put in
  * @node: represent the card
  * Return: return the card position
- */
+*/
 int get_card_position(deck_node_t *node)
 {
 	int value;
@@ -49,13 +57,12 @@ int get_card_position(deck_node_t *node)
 	value += (*node).card->kind * 13;
 	return (value);
 }
-
 /**
  * swap_card - swap a card for his previous one
  * @card: card
  * @deck: card deck
  * Return: return a pointer to a card which was enter it
- */
+*/
 deck_node_t *swap_card(deck_node_t *card, deck_node_t **deck)
 {
 	deck_node_t *back = card->prev, *current = card;
@@ -77,7 +84,8 @@ deck_node_t *swap_card(deck_node_t *card, deck_node_t **deck)
 /**
  * insertion_sort_deck - function that sorts a doubly linked deck
  * of integers in ascending order using the Insertion sort algorithm
- * @deck: Dobule linked deck to sort */
+ * @deck: Dobule linked deck to sort
+*/
 void insertion_sort_deck(deck_node_t **deck)
 {
 	int value_prev, value_current;
@@ -104,12 +112,11 @@ void insertion_sort_deck(deck_node_t **deck)
 		node = node->next;
 	}
 }
-
 /**
  * sort_deck - sort a deck you put in using
  * insertion sort algorithm
  * @deck: deck
-*/
+ */
 void sort_deck(deck_node_t **deck)
 {
 	insertion_sort_deck(deck);
